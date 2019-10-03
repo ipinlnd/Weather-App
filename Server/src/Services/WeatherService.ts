@@ -22,14 +22,16 @@ const getWeather = async (cityID: string): Promise<Weather[]> => {
       weatherState: item.weather_state_name,
       weatherStateAbbr: item.weather_state_abbr,
       windDirection: item.wind_direction_compass,
-      minTemp: item.min_temp.toString(),
-      maxTemp: item.max_temp.toString(),
-      theTemp: item.the_temp.toString(),
-      windSpeed: item.wind_speed.toString(),
-      airPressure: item.air_pressure.toString(),
-      humidity: item.humidity.toString(),
-      visibility: item.visibility.toString(),
-      predictability: item.predictability.toString(),
+      minTemp: item.min_temp ? item.min_temp.toFixed(2) : "N/A",
+      maxTemp: item.max_temp ? item.max_temp.toFixed(2) : "N/A",
+      theTemp: item.the_temp ? item.the_temp.toFixed(2) : "N/A",
+      windSpeed: item.wind_speed ? item.wind_speed.toFixed(2) : "N/A",
+      airPressure: item.air_pressure ? item.air_pressure.toFixed(2) : "N/A",
+      humidity: item.humidity ? item.humidity.toFixed(2) : "N/A",
+      visibility: item.visibility ? item.visibility.toFixed(2) : "N/A",
+      predictability: item.predictability
+        ? item.predictability.toFixed(2)
+        : "N/A",
       icon:
         SERVER_STRING + `/static/img/weather/${item.weather_state_abbr}.svg`,
     });

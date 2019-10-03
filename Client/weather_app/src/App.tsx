@@ -4,6 +4,7 @@ import { InMemoryCache } from "apollo-cache-inmemory";
 import { ApolloProvider } from "react-apollo";
 import { Main } from "./Components/Main";
 import ApolloClient from "apollo-client";
+import { ErrorBoundary } from "./Components/ErrorBoundary";
 
 const httpLink = createHttpLink({
   uri: "http://localhost:4000",
@@ -17,9 +18,11 @@ const client = new ApolloClient({ link: httpLink, cache });
 
 const App: React.FC = () => {
   return (
-    <ApolloProvider client={client}>
-      <Main />
-    </ApolloProvider>
+    <ErrorBoundary>
+      <ApolloProvider client={client}>
+        <Main />
+      </ApolloProvider>
+    </ErrorBoundary>
   );
 };
 

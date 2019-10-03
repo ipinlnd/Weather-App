@@ -12,10 +12,10 @@ const DropDownContainer = styled.div`
   width: 100%;
   margin-top: -1w;
   padding-top: 1vw;
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
   background-color: white;
-  height: 10vw;
+  max-height: 10vw;
 `;
 
 const DropDownOption = styled.option`
@@ -23,7 +23,7 @@ const DropDownOption = styled.option`
   background-color: white;
   height: 2vw;
   cursor: pointer;
-
+  font-size: 2vmin;
   :hover {
     background-color: #0000ff22;
   }
@@ -33,8 +33,8 @@ const DropDownOption = styled.option`
 `;
 
 const move = keyframes`
-  from {top: 50%;}
-  to {top: 5vw;}
+  from {top: 40%;}
+  to {top: 5vmax;}
 `;
 
 const scale = keyframes`
@@ -43,17 +43,18 @@ const scale = keyframes`
 `;
 
 const SearchInput = styled.input`
-  height: 3vw;
-  border-radius: 0.5vw;
-  font-size: 1.5vw;
+  height: 4vmin;
+  border-radius: 0.5vmax;
+  font-size: 2vmin;
   width: 100%;
 `;
 
 const SearchContainer = styled.div`
   width: 80%;
-  top: 50%;
+  top: 40%;
   position: absolute;
   display: flex;
+  border-radius: 0.5vmax;
   flex-direction: column;
   align-items: center;
   animation: ${(props: ContainerProps) =>

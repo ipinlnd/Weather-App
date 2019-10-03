@@ -1,9 +1,9 @@
-import React, { CSSProperties } from "react";
+import React, { CSSProperties, useState } from "react";
 import { SearchBox } from "./SearchBox";
+import { WeatherForecast } from "./WeatherForecast";
 
 const styles: Styles = {
   container: {
-    backgroundImage: "linear-gradient(#0055aaff, #0055aa99)",
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
@@ -21,9 +21,12 @@ interface Styles {
 interface MainProps {}
 
 const Main = (props: MainProps) => {
+  const [id, setId] = useState("");
+  console.log(id);
   return (
     <div style={styles.container}>
-      <SearchBox onSelect={(value: string) => console.log(value)} />
+      <SearchBox onSelect={(value: string) => setId(value)} />
+      {id !== "" ? <WeatherForecast id={id} /> : null}
     </div>
   );
 };

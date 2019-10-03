@@ -22,7 +22,7 @@ const SearchBox = (props: SearchBoxProps) => {
           setOptionIndex(optionIndex + 1);
         if (event.key === "ArrowUp" && optionIndex > 0)
           setOptionIndex(optionIndex - 1);
-        if (event.key === "Enter") {
+        if (event.key === "Enter" && options.length > 0) {
           setSelected(options[optionIndex].id);
           setTextInput(options[optionIndex].title);
           props.onSelect(options[optionIndex].id);
@@ -35,9 +35,10 @@ const SearchBox = (props: SearchBoxProps) => {
         onChange={(value: any) => {
           setTextInput(value.target.value);
           setSelected("");
+          props.onSelect("");
         }}
       />
-      {textInput !== "" && selected == "" ? (
+      {textInput !== "" && selected === "" ? (
         <Query
           query={Queries.getNameCompletion}
           variables={{ input: textInput }}
@@ -45,9 +46,11 @@ const SearchBox = (props: SearchBoxProps) => {
           {({ loading, error, data }: any) => {
             if (loading || error)
               return (
-                <SearchBoxComponents.DropDownOption isSelected={false}>
-                  Loading
-                </SearchBoxComponents.DropDownOption>
+                <SearchBoxComponents.DropDownContainer>
+                  <SearchBoxComponents.DropDownOption isSelected={false}>
+                    Loading
+                  </SearchBoxComponents.DropDownOption>
+                </SearchBoxComponents.DropDownContainer>
               );
 
             options = data.getNameCompletion;

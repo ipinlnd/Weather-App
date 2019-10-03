@@ -1,8 +1,8 @@
 import gql from "graphql-tag";
 
 const getWeather = gql`
-  query getWeather($cityId: String!) {
-    providerReviews(cityId: $cityId) {
+  query getWeather($cityId: String) {
+    getWeather(cityId: $cityId) {
       id
       weatherState
       weatherStateAbbr
@@ -21,7 +21,7 @@ const getWeather = gql`
 `;
 
 const getNameCompletion = gql`
-  query getNameCompletion($input: String!) {
+  query getNameCompletion($input: String) {
     getNameCompletion(input: $input) {
       id
       title
