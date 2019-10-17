@@ -98,7 +98,7 @@ const WeatherForecastComponents = {
   OtherImage,
   OtherWeatherTitle,
   OtherDayContainer,
-  TodayDetailsText,
+  TodayDetailsText
 };
 
 export { WeatherForecastComponents };

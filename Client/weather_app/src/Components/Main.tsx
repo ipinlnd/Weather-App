@@ -10,8 +10,8 @@ const styles: Styles = {
     alignItems: "center",
     width: "100vw",
     height: "100vh",
-    position: "relative",
-  },
+    position: "relative"
+  }
 };
 
 interface Styles {
@@ -22,7 +22,6 @@ interface MainProps {}
 
 const Main = (props: MainProps) => {
   const [id, setId] = useState("");
-  console.log(id);
   return (
     <div style={styles.container}>
       <SearchBox onSelect={(value: string) => setId(value)} />

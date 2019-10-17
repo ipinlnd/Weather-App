@@ -67,7 +67,7 @@ const SearchBoxComponents = {
   DropDownContainer,
   DropDownOption,
   SearchInput,
-  SearchContainer,
+  SearchContainer
 };
 
 export { SearchBoxComponents };

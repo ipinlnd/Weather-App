@@ -28,7 +28,7 @@ const getDayTitle = (index: number) => {
 
 const WeatherForecast = (props: WeatherForecastProps) => {
   const { loading, error, data } = useQuery(Queries.getWeather, {
-    variables: { cityId: props.id },
+    variables: { cityId: props.id }
   });
 
   const [shownIndex, setShownIndex] = useState(0);
